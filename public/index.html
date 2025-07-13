@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        body {
+            background-color: #002831;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+        .rotational {
+            width: calc(100% + 500px);
+            height: calc(100vh + 500px);
+            background: linear-gradient(to bottom, #2ee7f4, #054f61);
+            border: 2px solid #2ee7f4;
+            transform: translateY(-50%) translateX(-10%);
+        }
+        .rtm {
+            width: calc(100% + 800px);
+            height: calc(100vh + 500px);
+            transform: rotate(-60deg);
+            transition: all 1s cubic-bezier(.33,-0.02,.46,.94);
+        }
+        .loginform {
+            animation: fadeIn 1s forwards;
+            opacity: 1;
+            position: absolute;
+            top: 50%;
+            right: 25%;
+            transform: translateY(-50%) translateX(50%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .signform {
+            animation: fadeIn 1s forwards;
+            opacity: 1;
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            transform: translateY(-50%) translateX(-50%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;            
+        }
+        input {
+            width: 300px;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            background-color: transparent;
+            border-bottom: 2px solid #ffffff;
+            color: #f7f7f7;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+        }
+        input::placeholder {
+            color: #fff;
+        }
+        .header {
+            font-size: 50px;
+        }
+        .btn {
+            width: 320px;
+            padding: 10px;
+            margin: 25px 0 0px;
+            border: 2px solid #2ee7f4;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            background: linear-gradient(to bottom, #2ee7f4, #054f61, #2ee7f4);
+            background-size: 100% 200%;
+            background-position: center top;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-position: bottom center;
+            transform: scale(1.05);
+        }
+        .a {
+            background: none;
+            border: none;
+            color: #2ee7f4;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .logintxt {
+            animation: fadeIn 1s forwards;
+            opacity: 1;
+            position: absolute;
+            width: 40%;
+            top: 25%;
+            left: 25%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+        .signtxt {
+            animation: fadeIn 1s forwards;
+            opacity: 1;
+            position: absolute;
+            width: 40%;
+            top: 25%;
+            right: 25%;
+            transform: translateX(50%);
+            text-align: center;
+        }
+        .hidden {
+            animation: fadeOut 0.5s forwards;
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body onclick="">
+    <div class="rtm">
+    <div class="rotational">
+    </div></div>
+
+    <div class="loginform">
+        <h1 class="header">Login</h1>
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button class="btn">Login</button>
+        <p>Don't have an account? <button type="button" class="a" onclick="signupClicked()">Sign up</button></p>
+    </div>
+    <div class="logintxt">
+        <h1>Welcome To This Website!</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam doloribus temporibus aut tempora. Fuga quidem vitae officiis voluptate quasi, consequatur laudantium architecto exercitationem quia mollitia provident ipsa, modi molestiae corrupti!</p>
+    </div>
+    <div class="signform">
+        <h1 class="header">Sign up</h1>
+        <input type="text" placeholder="Username">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button class="btn">Sign up</button>
+        <p>Already have an account? <button type="button" class="a" onclick="loginClicked()">Login</button></p>
+    </div>
+    <div class="signtxt">
+        <h1>Sign up for our website!</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam doloribus temporibus aut tempora. Fuga quidem vitae officiis voluptate quasi, consequatur laudantium architecto exercitationem quia mollitia provident ipsa, modi molestiae corrupti!</p>
+    </div>
+</body>
+<script>
+    // forever loop:
+    setInterval(() => {
+        window.scrollTo(0, 0);
+    }, 0);
+    function signupClicked() {
+        const rtm = document.querySelector('.rtm');
+        rtm.style.transform = 'rotate(60deg)';
+        window.scrollTo(0, 0);
+        // add a class to login and signup to hide it. 
+        const loginForm = document.querySelector('.loginform');
+        const logintxt = document.querySelector('.logintxt');
+        loginForm.classList.add('hidden');
+        logintxt.classList.add('hidden');
+        // show the signup form and txt with fade in
+        const signForm = document.querySelector('.signform');
+        const signtxt = document.querySelector('.signtxt');
+        signForm.style.display = 'flex';
+        signtxt.style.display = 'block';
+        signForm.classList.remove('hidden');
+        signtxt.classList.remove('hidden');
+        // move sigin text backward and sign up text forward
+        const signText = document.querySelector('.signtxt');
+        const loginText = document.querySelector('.logintxt');
+        signText.style.zIndex = '1';
+        loginForm.style.zIndex = '0';     
+    }
+    function loginClicked() {
+        const rtm = document.querySelector('.rtm');
+        rtm.style.transform = 'rotate(-60deg)';
+        window.scrollTo(0, 0);
+        // add a class to login and signup to hide it. 
+        const signForm = document.querySelector('.signform');
+        const signtxt = document.querySelector('.signtxt');
+        signForm.classList.add('hidden');
+        signtxt.classList.add('hidden');
+        // show the login form and txt with fade in
+        const loginForm = document.querySelector('.loginform');
+        const logintxt = document.querySelector('.logintxt');
+        loginForm.style.display = 'flex';
+        logintxt.style.display = 'block';
+        loginForm.classList.remove('hidden');
+        logintxt.classList.remove('hidden');
+        // move login text backward and sign up text forward
+        const loginText = document.querySelector('.logintxt');
+        const signText = document.querySelector('.signtxt');
+        loginForm.style.zIndex = '1';
+        signText.style.zIndex = '0';
+    }
+    // i don't want the signup form and txt to be visible when the page loads
+    document.querySelector('.signform').style.display = 'none';
+    document.querySelector('.signtxt').style.display = 'none';
+</script>
+<script>
+document.querySelectorAll('.btn')[0].addEventListener('click', async () => {
+    const username = document.querySelectorAll('input')[0].value;
+    const password = document.querySelectorAll('input')[1].value;
+
+    const response = await fetch('/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+    });
+
+    const result = await response.json();
+    alert(result.message);
+        if (result.message === 'Login successful') {
+        window.location.href = '/dashboard.html';
+    }
+});
+
+document.querySelectorAll('.btn')[1].addEventListener('click', async () => {
+    const username = document.querySelectorAll('.signform input')[0].value;
+    const email = document.querySelectorAll('.signform input')[1].value;
+    const password = document.querySelectorAll('.signform input')[2].value;
+
+    const response = await fetch('/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, email, password })
+    });
+
+    const result = await response.json();
+    alert(result.message);
+    if (result.message === 'Signup successful') {
+        // take the user to login now just refresh the page
+        window.location.reload();
+    }
+
+});
+
+</script>
+</html>
